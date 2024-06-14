@@ -1,0 +1,197 @@
+newman
+
+otus_microservices_hw6
+
+→ registration user_1
+  POST http://arch.homework/api/auth/registration  
+  200 OK ★ 954ms time ★ 403B↑ 456B↓ size ★ 9↑ 13↓ headers ★ 0 cookies
+  ┌ ↑ raw ★ 103B
+  │ {
+  │     "username": "user_1",
+  │     "name": "Ivan",
+  │     "email": "ivan@mail.ru", 
+  │     "password": "12345"
+  │ }
+  └ 
+  ┌ ↓ text/plain ★ text ★ plain ★ utf8 ★ 57B
+  │ Вы успешно зарегистрировались!
+  └
+  prepare   wait   dns-lookup   tcp-handshake   transfer-start   download   process   total 
+  11ms      5ms    1ms          428µs           936ms            9ms        228µs     964ms 
+
+  ✓  registration user_1
+
+→ get profile user_1 without auth
+  GET http://arch.homework/api/auth/profile/user_1  
+  401 Unauthorized ★ 25ms time ★ 248B↑ 368B↓ size ★ 7↑ 12↓ headers ★ 0 cookies
+  ↓ text/plain ★ text ★ plain ★ utf8
+
+  prepare   wait    dns-lookup   tcp-handshake   transfer-start   download   process   total 
+  983µs     348µs   (cache)      (cache)         22ms             1ms        48µs      25ms  
+
+  ✓  get profile user_1 without auth
+
+→ update profile user_1 without auth
+  PUT http://arch.homework/api/auth/profile/user_1  
+  401 Unauthorized ★ 9ms time ★ 357B↑ 368B↓ size ★ 9↑ 12↓ headers ★ 0 cookies
+  ┌ ↑ raw ★ 57B
+  │ {
+  │     "name": "Nikita", 
+  │     "email": "nikita@email.ru"
+  │ }
+  └ 
+  ↓ text/plain ★ text ★ plain ★ utf8
+
+  prepare   wait    dns-lookup   tcp-handshake   transfer-start   download   process   total 
+  601µs     151µs   (cache)      (cache)         7ms              850µs      16µs      9ms   
+
+  ✓  update profile user_1 without auth
+
+→ login user_1
+  POST http://arch.homework/api/auth/login  
+  200 OK ★ 483ms time ★ 345B↑ 586B↓ size ★ 9↑ 13↓ headers ★ 0 cookies
+  ┌ ↑ raw ★ 53B
+  │ {
+  │     "username": "user_1",
+  │     "password": "12345"
+  │ }
+  └ 
+  ┌ ↓ application/json ★ text ★ json ★ utf8 ★ 187B
+  │ {"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyXzEiLCJ
+  │ pYXQiOjE3MTgzOTk0NTYsImV4cCI6MTcxOTAwNDI1Nn0.OODfPJOWH
+  │ bpAx-qX-Ldij4RQDM1443J_W65m3CGaFS6m0IFO74yaoWztn8SRO2N
+  │ AlXF2ahwPc-J7r37ClVA5pw"}
+  └
+  prepare   wait    dns-lookup   tcp-handshake   transfer-start   download   process   total 
+  588µs     153µs   (cache)      (cache)         443ms            39ms       165µs     483ms 
+
+  ✓  login user_1
+
+→ update profile user_1
+  PUT http://arch.homework/api/auth/profile/user_1  
+  200 OK ★ 177ms time ★ 556B↑ 358B↓ size ★ 10↑ 12↓ headers ★ 0 cookies
+  ┌ ↑ raw ★ 57B
+  │ {
+  │     "name": "Nikita", 
+  │     "email": "nikita@email.ru"
+  │ }
+  └ 
+  ↓ text/plain ★ text ★ plain ★ utf8
+
+  prepare   wait    dns-lookup   tcp-handshake   transfer-start   download   process   total 
+  685µs     304µs   (cache)      (cache)         173ms            3ms        68µs      177ms 
+
+  ✓  update profile user_1
+
+→ get profile user_1
+  GET http://arch.homework/api/auth/profile/user_1  
+  200 OK ★ 81ms time ★ 447B↑ 469B↓ size ★ 8↑ 13↓ headers ★ 0 cookies
+  ┌ ↓ application/json ★ text ★ json ★ utf8 ★ 70B
+  │ {"id":1,"name":"Nikita","username":"user_1","email":"n
+  │ ikita@email.ru"}
+  └
+  prepare   wait    dns-lookup   tcp-handshake   transfer-start   download   process   total 
+  706µs     141µs   (cache)      (cache)         39ms             40ms       107µs     81ms  
+
+  ✓  get profile user_1
+
+→ logout user_1
+  GET http://arch.homework/api/auth/logout  
+  200 OK ★ 29ms time ★ 439B↑ 358B↓ size ★ 8↑ 12↓ headers ★ 0 cookies
+  ↓ text/plain ★ text ★ plain ★ utf8
+
+  prepare   wait    dns-lookup   tcp-handshake   transfer-start   download   process   total 
+  634µs     353µs   (cache)      (cache)         25ms             2ms        43µs      29ms  
+
+  ✓  logout user_1
+
+→ registration user_2
+  POST http://arch.homework/api/auth/registration  
+  200 OK ★ 106ms time ★ 403B↑ 456B↓ size ★ 9↑ 13↓ headers ★ 0 cookies
+  ┌ ↑ raw ★ 103B
+  │ {
+  │     "username": "user_2",
+  │     "name": "Alex",
+  │     "email": "alex@mail.ru", 
+  │     "password": "54321"
+  │ }
+  └ 
+  ┌ ↓ text/plain ★ text ★ plain ★ utf8 ★ 57B
+  │ Вы успешно зарегистрировались!
+  └
+  prepare   wait    dns-lookup   tcp-handshake   transfer-start   download   process   total 
+  907µs     493µs   (cache)      (cache)         103ms            1ms        44µs      106ms 
+
+  ✓  registration user_2
+
+→ login user_2
+  POST http://arch.homework/api/auth/login  
+  200 OK ★ 148ms time ★ 345B↑ 586B↓ size ★ 9↑ 13↓ headers ★ 0 cookies
+  ┌ ↑ raw ★ 53B
+  │ {
+  │     "username": "user_2",
+  │     "password": "54321"
+  │ }
+  └ 
+  ┌ ↓ application/json ★ text ★ json ★ utf8 ★ 187B
+  │ {"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyXzIiLCJ
+  │ pYXQiOjE3MTgzOTk0NTcsImV4cCI6MTcxOTAwNDI1N30._ed-yhr0l
+  │ V8lDtll5K8srdwPVYjmFXeEp3rOh9VFXuEtc-BipR-DtnnJWfat9OP
+  │ w86CjJfL8KcoWESyH9txY0g"}
+  └
+  prepare   wait    dns-lookup   tcp-handshake   transfer-start   download   process   total 
+  915µs     432µs   (cache)      (cache)         106ms            40ms       523µs     149ms 
+
+  ✓  login user_2
+
+→ get profile user_1 by user_2
+  GET http://arch.homework/api/auth/profile/user_1  
+  403 Forbidden ★ 30ms time ★ 447B↑ 438B↓ size ★ 8↑ 13↓ headers ★ 0 cookies
+  ┌ ↓ text/plain ★ text ★ plain ★ utf8 ★ 32B
+  │ Это чужой профиль
+  └
+  prepare   wait    dns-lookup   tcp-handshake   transfer-start   download   process   total 
+  686µs     212µs   (cache)      (cache)         27ms             2ms        336µs     30ms  
+
+  ✓  get profile user_1 by user_2
+
+→ update profile user_1 by user_2
+  PUT http://arch.homework/api/auth/profile/user_1  
+  403 Forbidden ★ 17ms time ★ 555B↑ 438B↓ size ★ 10↑ 13↓ headers ★ 0 cookies
+  ┌ ↑ raw ★ 56B
+  │ {
+  │     "name": "Mihail", 
+  │     "email": "misha@email.ru"
+  │ }
+  └ 
+  ┌ ↓ text/plain ★ text ★ plain ★ utf8 ★ 32B
+  │ Это чужой профиль
+  └
+  prepare   wait    dns-lookup   tcp-handshake   transfer-start   download   process   total 
+  714µs     150µs   (cache)      (cache)         13ms             2ms        77µs      17ms  
+
+  ✓  update profile user_1 by user_2
+
+┌─────────────────────────┬─────────────────────┬────────────────────┐
+│                         │            executed │             failed │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│              iterations │                   1 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│                requests │                  11 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│            test-scripts │                  22 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│      prerequest-scripts │                  11 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│              assertions │                  11 │                  0 │
+├─────────────────────────┴─────────────────────┴────────────────────┤
+│ total run duration: 2.2s                                           │
+├────────────────────────────────────────────────────────────────────┤
+│ total data received: 622B (approx)                                 │
+├────────────────────────────────────────────────────────────────────┤
+│ average response time: 187ms [min: 9ms, max: 954ms, s.d.: 274ms]   │
+├────────────────────────────────────────────────────────────────────┤
+│ average DNS lookup time: 1ms [min: 1ms, max: 1ms, s.d.: 0µs]       │
+├────────────────────────────────────────────────────────────────────┤
+│ average first byte time: 172ms [min: 7ms, max: 936ms, s.d.: 269ms] │
+└────────────────────────────────────────────────────────────────────┘
